@@ -1,6 +1,6 @@
 {
     "name": "bishopb/upm",
-    "description": "Unified pattern matching API for PHP."
+    "description": "Unified pattern matching API for PHP.",
     "license": "MIT",
     "authors": [
         {
