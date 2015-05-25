@@ -1,0 +1,24 @@
+{
+    "name": "bishopb/upm",
+    "description": "Unified pattern matching API for PHP."
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bishop Bettini", "email": "bishop@php.net"
+        }
+    ],
+    "autoload": {
+        "classmap": [ "src" ],
+        "psr-4": {
+            "BishopB\\Upm\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BishopB\\Upm\\": "tests/"
+        }
+    }
+}
