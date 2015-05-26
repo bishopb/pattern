@@ -1,6 +1,5 @@
 # Unified Pattern Matching for PHP
 *Abstracts various pattern matching functionalities into a consistent, unified API.*
-Lots of syntatic sugar, without run-time fat.
 
 ## Quickstart
 
@@ -10,16 +9,32 @@ Install:
 composer require bishopb/upm 0.1`
 ```
 
-Use:
+Simple usage:
 
 ```
 use BishopB\Upm;
 
-$needle = new Literal('ark');
-$needle->foundIn('aardvark'); // true
+$subject = new Subject('Fruit smoothies');
+$subject->matches(new Wildcard('*moo*'));
+$subject->matches(new Pcre('^\w{5} '));
+$subject->fold()->beginsWith('FRUIT');
+```
 
-$pattern = new Pcre('^\s*#', 'i');
-$pattern->matches('# a comment'); // true
+## Examples
+
+### Literal string comparison
+
+```
+$haystack = new Subject('The quick brown fox jumps over the lazy dog.  ');
+$haystack->contains('quick');  // true
+$haystack->beginsWith('the');  // false (different case)
+$haystack->endsWith('dog.');   // false (space at end)
+
+$haystack->fold()->beginsWith('the'); // true (case is folded)
+$haystack->trim()->endsWith('dog.');  // true (space trimmed)
+
+$haystack->startAt(4)->beginsWith('quick'); // true (index 4 reads "quick")
+$haystack->trim()->endAt(-5)->endsWith('lazy'); // true (remove whitespace & "dog.")
 ```
 
 ## Motivation
@@ -56,73 +71,16 @@ functions to that developers can:
 * Access `fnmatch()` behavior even on systems that don't have it
 
 
-```
-use BishopB\Upm;
-
-// consistent matching API, regardless of pattern language:
-$patterns = array (
-    new Needle('foobar'),
-    new Version('1.0.1'),
-    new Wildcard('foo*bar?'),
-    new Pcre('^\s*#'),
-);
-foreach ($patterns as $pattern) {
-    // regardless of type of pattern, there is a matches() method
-    // that "does the right thing"
-    if ($pattern->matches($input)) {
-        // $input can be a plain-old string or a Subject object
-    }
-}
-
-// downgrade nicely to native functdions
-if (preg_match(new Pcre('^\s*+'), $input)) {
-}
-
-// typed passthru interface to avoid pattern-function disparity:
-try {
-    Pcre::grep(new Wildcard('foo*bar'), $lines);
-} catch (PatternFunctionMismatch $ex) {
-    echo $ex->getMessage(); // "Wildcard pattern passed to PCRE grep"
-}
-
-// consolidate needle-in-haystack matching functionality
-// needle-centric:
-$haystack = 'aardvark';
-$needle   = new Literal('ark');
-
-$needle->begins($haystack);              // false
-$needle->ends($haystack);                // true
-$needle->foundIn($haystack);             // true
-
-// haystack-centric:
-$haystack = new Subject('aardvark');
-$needle   = 'ark';
-
-$haystack->startsWith($needle); // false
-$haystack->endsWith($needle);   // true
-$haystack->contains($needle);   // true
-
-$left  = 'apple';
-$right = 'orange';
-Literal::spaceship($left, $right); // emulate <=>
-
-$left    = new Literal('apple');
-$right_1 = 'orange';
-$right_2 = new Literal('orange');
-$left->sorts->before($right_1); // true;
-$left->sorts->before($right_2); // true;
-$left->sorts->after($right_1);  // false
-$left->sorts->same($right_1);   // false
-
-try {
-    $pattern = new Pcre('^\s*');
-    if ($pattern->sorts->before('foo')) {
-    }
-} catch (PcreException $ex) {
-    echo 'PCRE doesnt support ordering relationship';
-}
-```
-
 ## Performance
 
 Overhead must be negligable. Transliteral code must be within 1% of performance.
+Lots of syntatic sugar, without run-time fat.
+Put in tests.
+
+## FAQ
+
+### The Subject class acts a lot like a String class. Why not put more stringy methods in it?
+
+Subject aims to facilitate the string searching and pattern matching, and the
+package overall aims to be concise and performant.  To ensure all those aims
+are met, only the bare minimum of functionality is in-built.
