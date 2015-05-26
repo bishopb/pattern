@@ -23,10 +23,10 @@ Literal | `0 === strcmp($pattern, $input)` | `'foobar'`
 Shell-style wildcards | `true === fnmatch($pattern, $input)` | `'foo*bar?'`
 PCRE regular expressions | `true === preg_match($pattern, $input)` | `'^\s*#'`
 
-There are few problems with these API;
+There are few problems with these API:
 
-* `$pattern` is a plain old string, which means you can write obviously wrong
-code like: `fnmatch('foo*bar?', $input)`
+* `$pattern` is a plain old string, which means you can write probably wrong
+code like: `fnmatch('^foo.*bar', $input)`
 * Not every platform supports `fnmatch`
 * `strcmp` and family return an orderable result that doesn't encorage intenional
 programming. Consider: `if (strcmp('foo', $input)) { echo 'match?'; }`
@@ -38,7 +38,7 @@ functions to that developers can:
 
 * type hint patterns to avoid pattern and function disparity
 * support new pattern languages without changing code
-* access fnmatch() even on systems that don't have it
+* access `fnmatch()` even on systems that don't have it
 
 
 ```
