@@ -1,6 +1,8 @@
 # Stencil
 Stencil is a PHP library for applying patterns to subject strings using a
-consistent, fluent API.
+consistent, fluent API.  Stencil unifies the API for `strcmp` and family,
+`fnmatch`, `preg_match`, and `version_compare`, while also providing
+convenience methods for common string matching operations.
 
 Stencil might be for you if:
 
