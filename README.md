@@ -1,6 +1,7 @@
 # Unified Pattern Matching for PHP
 *Abstract the various PHP pattern matching functionalities into a consistent, unified API.*
 
+
 ## Quickstart
 
 Install:
@@ -42,6 +43,7 @@ $stable->before('1.0.1');
 $stable->after('0.9.9');
 ```
 
+
 ## Motivation
 In PHP, developers have four common ways to match strings to patterns:
 
@@ -70,7 +72,7 @@ regular expressions, you have to re-write your code.
 * Not every platform supports `fnmatch`.
 
 This library provides a fast, thin abstraction over the built-in pattern
-matching functions to that developers can:
+matching functions so that developers can:
 
 * Express the intent of the code clearly
 * Uniformly indicate case-sensitivity
@@ -97,6 +99,7 @@ Benchmark | Native PHP | This Library | % Diff
 *All benchmarks run 1000 times on a small, unloaded EC2 instance. Refer to
 `tests/benchmarks` for actual code.*
 
+
 ## Advanced usage
 
 Typically methods in the pattern classes (`Literal`, `Wildcard`, and `Pcre`)
@@ -104,20 +107,27 @@ take strings.  However, you can also pass instances of `Subject`, which is
 a lightweight string class fit with methods common to string comparison:
 
 ```php
-$literal = new Literal('Able')->fold();
-$subject = new Subject('    Tablet.');
+use BishopB\Upm;
 
-$literal->begins(
+$device  = new Literal('Tablet')->fold();
+$version = new Version('8.1');
+$subject = new Subject('    Microsoft Tablet running Windows 8.1.0RC242.')-trim();
+
+$device->matches(
     $subject->
-    trim()->     // remove leading/trailing whitespace
-    slice(1, -1) // remove the first & last character
+    part(' ', 1) // explode at space and get the 1st index
+);
+$version->after(
+    $subject->
+    part(' ', -1)-> // explode at space and get the last index
+    substr(0, 6)    // only the first 6 characters
 );
 ```
 
 
 ## FAQ
 
-### Why not just the built-ins?
+### Why not just use the built-ins?
 
 For the reasons mentioned above.  Personally, I wrote this library because
 I kept referring to the official docs on the argument order for the built-ins
