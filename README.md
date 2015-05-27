@@ -1,5 +1,5 @@
 # Unified Pattern Matching for PHP
-*Abstracts various pattern matching functionalities into a consistent, unified API.*
+*Abstract the various PHP pattern matching functionalities into a consistent, unified API.*
 
 ## Quickstart
 
@@ -9,32 +9,38 @@ Install:
 composer require bishopb/upm 0.1`
 ```
 
-Simple usage:
+Use:
 
 ```
+<?php
 use BishopB\Upm;
 
-$subject = new Subject('Fruit smoothies');
-$subject->matches(new Wildcard('*moo*'));
-$subject->matches(new Pcre('^\w{5} '));
-$subject->fold()->beginsWith('FRUIT');
-```
+// common matching API regardless of pattern language
+$subjects = array ( 'Capable', 'Enabler', 'Able', );
+$patterns = array (
+    new Literal('Able'),
+    new Wildcard('*able*'),
+    new Pcre('^\w*Able\w*$')->fold(),
+);
+foreach ($subjects as $subject) {
+    foreach ($patterns as $pattern) {
+        $pattern->matches($subject) and "$pattern matches $subject";
+    }
+}
 
-## Examples
+// literal string matching sugar
+$able = new Literal('Able')->fold();
+$able->foundIn('tablet');
+$able->begins('Abletic');
+$able->ends('Parable');
+$able->sorts->before('active');
+$able->sorts->after('aardvark');
 
-### Literal string comparison
-
-```
-$haystack = new Subject('The quick brown fox jumps over the lazy dog.  ');
-$haystack->contains('quick');  // true
-$haystack->beginsWith('the');  // false (different case)
-$haystack->endsWith('dog.');   // false (space at end)
-
-$haystack->fold()->beginsWith('the'); // true (case is folded)
-$haystack->trim()->endsWith('dog.');  // true (space trimmed)
-
-$haystack->startAt(4)->beginsWith('quick'); // true (index 4 reads "quick")
-$haystack->trim()->endAt(-5)->endsWith('lazy'); // true (remove whitespace & "dog.")
+// version string matching sugar
+$stable = new Version('1.0.0');
+$stable->matches('1.0.0');
+$stable->before('1.0.1');
+$stable->after('0.9.9');
 ```
 
 ## Motivation
@@ -49,21 +55,23 @@ PCRE regular expressions | `true === preg_match($pattern, $input)` | `'^\s*#'`
 
 There are few problems with these API:
 
-* `$pattern` is a plain old string, which means you can make probable mistakes like:
-`fnmatch('^foo.*bar', $input)`
-* `strcmp` and family return an orderable result that doesn't encourage intenional
-programming. Consider: `if (strcmp('foo', $input)) { echo 'pop quiz: matches foo?'; }`
-* Functions to perform literal comparisons are scattered all over the place: `strcmp`,
-`strcasecmp`, `strpos`, `stripos`, etc.
-* Can be difficult to remember which argument is pattern and which is subject (compare
-`strpos` and `preg_match`.
-* How one specifies "case-insensitive" various widely amongst the comparison functions.
-* If your code initially accepts literal matches, then you want to support regular
-expressions, you have to re-write your code.
+* `$pattern` is a plain old string, which means you can make probable mistakes
+like: `fnmatch('^foo.*bar', $input)`
+* `strcmp` and family return an orderable result that doesn't encourage
+intenional programming. Consider:
+`if (strcmp('foo', $input)) { echo 'pop quiz: matches foo?'; }`
+* Functions to perform literal comparisons are scattered all over the place:
+`strcmp`, `strcasecmp`, `strpos`, `stripos`, etc.
+* Can be difficult to remember which argument is pattern and which is subject
+(compare `strpos` and `preg_match`).
+* How one specifies "case-insensitive" various widely amongst the comparison
+functions.
+* If your code initially accepts literal matches, then you want to support
+regular expressions, you have to re-write your code.
 * Not every platform supports `fnmatch`.
 
-This library provides a fast, thin abstraction over the built-in pattern matching
-functions to that developers can:
+This library provides a fast, thin abstraction over the built-in pattern
+matching functions to that developers can:
 
 * Express the intent of the code clearly
 * Uniformly indicate case-sensitivity
@@ -73,14 +81,52 @@ functions to that developers can:
 
 ## Performance
 
-Overhead must be negligable. Transliteral code must be within 1% of performance.
-Lots of syntatic sugar, without run-time fat.
-Put in tests.
+This package's philosophy is simple: to deliver syntactic sugar with minimal
+run-time fat.  Pattern object calls are a thin facade over the fastest
+implementation of the given match.  Space is conserved as much as possible.
+
+### Run-time benchmarks
+
+Benchmark | Native PHP | This Library | % Diff
+----------|------------|--------------|-------
+
+### Peak-memory consumption benchmarks
+
+Benchmark | Native PHP | This Library | % Diff
+----------|------------|--------------|-------
+
+*All benchmarks run 1000 times on a small, unloaded EC2 instance. Refer to
+`tests/benchmarks` for actual code.*
+
+## Advanced usage
+
+Typically methods in the pattern classes (`Literal`, `Wildcard`, and `Pcre`)
+take strings.  However, you can also pass instances of `Subject`, which is
+a lightweight string class fit with methods common to string comparison:
+
+```
+<?php
+$literal = new Literal('Able')->fold();
+$subject = new Subject('    Tablet.');
+
+$literal->begins(
+    $subject->
+    trim()->     // remove leading/trailing whitespace
+    slice(1, -1) // remove the first & last character
+);
+```
+
 
 ## FAQ
 
-### The Subject class acts a lot like a String class. Why not put more stringy methods in it?
+### Why not just the built-ins?
 
-Subject aims to facilitate the string searching and pattern matching, and the
-package overall aims to be concise and performant.  To ensure all those aims
-are met, only the bare minimum of functionality is in-built.
+For the reasons mentioned above.  Personally, I wrote this library because
+I kept referring to the official docs on the argument order for the built-ins
+and because common use cases aren't handled concisely.
+
+### Why not add more stringy methods, like `length()`, to `Subject`?
+
+The package overall aims to support pattern matching in the lightest weight
+possible.  Bulking up `Subject` with methods unrelated to pattern matches
+conflicts with this goal.
