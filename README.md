@@ -1,19 +1,28 @@
-# Unified Pattern Matching for PHP
-*Abstract the various PHP pattern matching functionalities into a consistent, unified API.*
+# Stencil
+Stencil is a PHP library for applying patterns to subject strings using a
+consistent, fluent API.
 
+Stencil might be for you if:
+
+* You're tired of referring to the PHP user manual for the argument order of
+`strpos` and friends.
+* You're frustrated that there's no simple, built-in implementation to find if
+a string ends with another.
+* You're tired of off-by-one errors when doing simple string checks.
+* You want your code to read as you intend it to function.
+
+| Branch | Unit Tests | Coverage |
+| ------ | ---------- | -------- |
+| [![Latest Stable Version](https://poser.pugx.org/bishopb/stencil/v/stable.png)](https://packagist.org/packages/bishopb/stencil) | [![Build Status](https://travis-ci.org/bishopb/stencil.png?branch=master)](https://travis-ci.org/bishopb/stencil) | [![Coverage Status](https://coveralls.io/repos/bishopb/stencil/badge.png?branch=master)](https://coveralls.io/r/bishopb/stencil?branch=master)|
 
 ## Quickstart
 
-Install:
-
-```
-composer require bishopb/upm 0.1`
-```
+Install with [Composer][1]: `composer require bishopb/stencil:~0.1`
 
 Use:
 
 ```php
-use BishopB\Upm;
+use BishopB\Stencil;
 
 // common matching API regardless of pattern language
 $subjects = array ( 'Capable', 'Enabler', 'Able', );
@@ -102,12 +111,14 @@ Benchmark | Native PHP | This Library | % Diff
 
 ## Advanced usage
 
+### Manipulating the search subjects
+
 Typically methods in the pattern classes (`Literal`, `Wildcard`, and `Pcre`)
 take strings.  However, you can also pass instances of `Subject`, which is
 a lightweight string class fit with methods common to string comparison:
 
 ```php
-use BishopB\Upm;
+use BishopB\Stencil;
 
 $device  = new Literal('Tablet')->fold();
 $version = new Version('8.1');
@@ -124,6 +135,26 @@ $version->after(
 );
 ```
 
+### Faster searching of big text or with repeated searches
+
+When your subject text is long, or you expect to compare your literal pattern to
+many different subjects, it's worth it to "study" the literal pattern for
+improved performance.
+
+```php
+
+// notice the use of study()
+// without this, searching would be much slower
+$zebra = new Literal('zebra')->fold()->study();
+$words = file_get_contents('/usr/share/dict/words') or die('No dictionary');
+$zebra->foundIn($words);
+```
+
+You may be wondering: how many characters is "long"?  Or, how many iterations
+is "many"?  Well, I suppose it depends.  But, a long time ago, some PHP
+internals [benchmarking][2] suggested a length of 5000+ or more would make
+studying worth it.
+
 
 ## FAQ
 
@@ -138,3 +169,6 @@ and because common use cases aren't handled concisely.
 The package overall aims to support pattern matching in the lightest weight
 possible.  Bulking up `Subject` with methods unrelated to pattern matches
 conflicts with this goal.
+
+[1]: http://getcomposer.org/
+[2]: http://grokbase.com/t/php/php-internals/0869z2aemb/algorithm-optimizations-string-search#20080611g4vev3qwk7sj0sdwmgjtg7pjyc
