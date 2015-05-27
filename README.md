@@ -11,8 +11,7 @@ composer require bishopb/upm 0.1`
 
 Use:
 
-```
-<?php
+```php
 use BishopB\Upm;
 
 // common matching API regardless of pattern language
@@ -104,8 +103,7 @@ Typically methods in the pattern classes (`Literal`, `Wildcard`, and `Pcre`)
 take strings.  However, you can also pass instances of `Subject`, which is
 a lightweight string class fit with methods common to string comparison:
 
-```
-<?php
+```php
 $literal = new Literal('Able')->fold();
 $subject = new Subject('    Tablet.');
 
