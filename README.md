@@ -83,19 +83,14 @@ regular expressions, you have to re-write your code.
 * Not every platform supports `fnmatch`.
 
 This library provides a fast, thin abstraction over the built-in pattern
-matching functions so that developers can:
-
-* Express the intent of the code clearly
-* Uniformly indicate case-sensitivity
-* Rely on type hinting too ensure pattern and function parity
-* Access `fnmatch()` behavior even on systems that don't have it
+matching functions to mitigate these problems.
 
 
 ## Performance
 
 This package's philosophy is simple: to deliver syntactic sugar with minimal
-run-time fat.  Pattern object calls are a thin facade over the fastest
-implementation of the given match.  Space is conserved as much as possible.
+run-time fat.  API calls are a thin facade over the fastest implementation of
+the requested match.  Space is conserved as much as possible.
 
 ### Run-time benchmarks
 
@@ -107,8 +102,8 @@ Benchmark | Native PHP | This Library | % Diff
 Benchmark | Native PHP | This Library | % Diff
 ----------|------------|--------------|-------
 
-*All benchmarks run 1000 times on a small, unloaded EC2 instance. Refer to
-`tests/benchmarks` for actual code.*
+*All benchmarks run 1,000,000 times on a small, unloaded EC2 instance. Refer to
+`tests/` for actual code.*
 
 
 ## Advanced usage
@@ -164,7 +159,8 @@ studying worth it.
 
 For the reasons mentioned above.  Personally, I wrote this library because
 I kept referring to the official docs on the argument order for the built-ins
-and because common use cases aren't handled concisely.
+and because common use cases aren't handled concisely.  In summary, this
+library lets me write less code and be more clear in meaning.
 
 ### Why not add more stringy methods, like `length()`, to `Subject`?
 
