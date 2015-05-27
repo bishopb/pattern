@@ -115,11 +115,11 @@ $subject = new Subject('    Microsoft Tablet running Windows 8.1.0RC242.')-trim(
 
 $device->matches(
     $subject->
-    column(' ', 1) // explode at space and get the 1st index
+    column(' ', 1) // explode at space and get the 1st index (0-based)
 );
 $version->after(
     $subject->
-    column(' ', -1)-> // explode at space and get the last index
+    column(' ', -1)-> // explode at space and get the last index (nth-from last)
     substring(0, 4)   // only the first 5 characters
 );
 ```
