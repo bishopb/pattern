@@ -40,13 +40,13 @@
 							<p>
 <pre><code>
 <?php
-// simple stuff is clear
+// simple stuff should be clear
 $password = new Literal($_GET['password']);
 if ($password->matches($this->password)) {
     $this->login();
 }
 
-// hard stuff is easy
+// hard stuff should be easy
 $shell = new Pcre('{a,ba,k,z}sh');
 $file  = new SubjectFile('/etc/group');
 $shell->foundIn($file->column(':', 7));
