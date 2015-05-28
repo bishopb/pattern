@@ -38,7 +38,7 @@
 								<h2>Easier to read<br />Just as fast</h2>
 							</header>
 							<p>
-<code><pre>
+<pre><code>
 <?php
 // simple stuff is clear
 $password = new Literal($_GET['password']);
@@ -50,13 +50,15 @@ if ($password->matches($this->password)) {
 $shell = new Pcre('{a,ba,k,z}sh');
 $file  = new SubjectFile('/etc/group');
 $shell->foundIn($file->column(':', 7));
-</pre></code>
+</code></pre>
 
                             </p>
 						</div>
 						<div class="6u$ 12u$(medium) important(medium)">
-<a href='https://github.com/bishopb/pattern/blob/master/README.md'>Introduction</a>
-<a href='docs/'>Read the API docs</a>
+<ul>
+<li><a href='https://github.com/bishopb/pattern/blob/master/README.md'>Introduction</a></li>
+<li><a href='docs/'>Read the API docs</a></li>
+</ul>
 						</div>
 					</div>
 				</div>
