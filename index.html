@@ -35,29 +35,27 @@
 					<div class="row 150%">
 						<div class="6u 12u$(medium)">
 							<header class="major">
-								<h2>Easier to read, Less edge cases</h2>
+								<h2>Easier to read<br />Just as fast</h2>
 							</header>
 							<p>
 <code><pre>
-// okay
-if (! strcasecmp($actual, $expected)) {
-    $this->doSomething();
-} else {
-    throw new \RuntimeException('Actual does not match expected');
+<?php
+// simple stuff is clear
+$password = new Literal($_GET['password']);
+if ($password->matches($this->password)) {
+    $this->login();
 }
+
+// hard stuff is easy
+$shell = new Pcre('{a,ba,k,z}sh');
+$file  = new SubjectFile('/etc/group');
+$shell->foundIn($file->column(':', 7));
 </pre></code>
 
                             </p>
 						</div>
 						<div class="6u$ 12u$(medium) important(medium)">
-<code><pre>
-// better
-if ($actual->fold()->matches($expected)) {
-    $this->doSomething();
-} else {
-    throw new \RuntimeException('Actual does not match expected');
-}
-</pre></code>
+<a href='https://github.com/bishopb/pattern/blob/master/README.md'>Introduction</a>
 <a href='docs/'>Read the API docs</a>
 						</div>
 					</div>
