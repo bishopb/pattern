@@ -71,9 +71,10 @@ There are few problems with these API:
 like: `fnmatch('^foo.*bar', $input)`
 * `strcmp` and family return an orderable result that doesn't encourage
 intenional programming. Consider:
-`if (strcmp('foo', $input)) { echo 'pop quiz: matches foo?'; }`
+`if (! strcasecmp('foo', $input)) { echo 'pop quiz: matches foo?'; }`
 * Functions to perform literal comparisons are scattered all over the place:
 `strcmp`, `strcasecmp`, `strpos`, `stripos`, etc.
+* Both `strcasecmp` and `==` are [dangerous][2] ways to compare strings.
 * Can be difficult to remember which argument is pattern and which is subject
 (compare `strpos` and `preg_match`).
 * How one specifies "case-insensitive" various widely amongst the comparison
@@ -96,6 +97,7 @@ the requested match.  Space is conserved as much as possible.
 
 Benchmark | Native PHP | This Library | % Diff
 ----------|------------|--------------|-------
+String comparison (Strcmp) | 
 
 ### Peak-memory consumption benchmarks
 
@@ -139,7 +141,6 @@ many different subjects, it's worth it to "study" the literal pattern for
 improved performance.
 
 ```php
-
 // notice the use of study()
 // without this, searching would be much slower
 $zebra = new Literal('zebra')->fold()->study();
@@ -149,7 +150,7 @@ $zebra->foundIn($words);
 
 You may be wondering: how many characters is "long"?  Or, how many iterations
 is "many"?  Well, I suppose it depends.  But, a long time ago, some PHP
-internals [benchmarking][2] suggested a length of 5000+ or more would make
+internals [benchmarking][3] suggested a length of 5000+ or more would make
 studying worth it.
 
 
@@ -169,4 +170,5 @@ possible.  Bulking up `Subject` with methods unrelated to pattern matches
 conflicts with this goal.
 
 [1]: http://getcomposer.org/
-[2]: http://grokbase.com/t/php/php-internals/0869z2aemb/algorithm-optimizations-string-search#20080611g4vev3qwk7sj0sdwmgjtg7pjyc
+[2]: https://bugs.php.net/bug.php?id=64069
+[3]: http://grokbase.com/t/php/php-internals/0869z2aemb/algorithm-optimizations-string-search#20080611g4vev3qwk7sj0sdwmgjtg7pjyc
