@@ -20,5 +20,8 @@
         "psr-4": {
             "BishopB\\Pattern\\": "tests/"
         }
+    },
+    "require": {
+        "phpdocumentor/phpdocumentor": "~2.0"
     }
 }

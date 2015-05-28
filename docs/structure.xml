@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="API Documentation" version="2.8.2">
+  <partials/>
+  <file path="Matchable.php" generated-path="Matchable.html" hash="c6d97da3184b78217bc4f798ed82fc96" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <interface namespace="BishopB\Upm\Contract" line="7" package="Default">
+      <name>Matchable</name>
+      <full_name>\BishopB\Upm\Contract\Matchable</full_name>
+      <docblock line="7">
+        <description>Declares that the object can match a simple string.</description>
+        <long-description></long-description>
+        <tag name="package" line="7" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BishopB\Upm\Contract" line="9" package="Default">
+        <name>matches</name>
+        <full_name>\BishopB\Upm\Contract\Matchable::matches()</full_name>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="9" code="PPC:ERR-50015">Argument $string is missing from the Docblock of matches</error>
+      <error line="9" code="PPC:ERR-50008">No summary for method matches()</error>
+    </parse_markers>
+    <source>eJwtjbEOwjAMRHd/hQcGyEB2ioRUWBnZujiWS4LSJErcCfHvpIIbTjfcvTtfii+QaJFWiAXH0Hwu4/Qoy3TNSSuxDgDWGECDN+FIVRqqJ+0mmN1LWJEp4ULKHglbWEoUbFpDeh77zEJIKnXe+PetRC4KvAG7yupiYJzXxBryHyJtb80f0Oe7XzqgNSd0OUfpb8YO8IEvB2M+sA==</source>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="global" full_name="global"/>
+  <namespace name="BishopB" full_name="BishopB">
+    <namespace name="Upm" full_name="BishopB\Upm">
+      <namespace name="Contract" full_name="BishopB\Upm\Contract"/>
+    </namespace>
+  </namespace>
+  <deprecated count="0"/>
+</project>
