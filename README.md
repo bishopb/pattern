@@ -98,7 +98,7 @@ the requested match.  Space is conserved as much as possible.
 Meaurements for different tests in operations per second.
 
 Benchmark | Native PHP | This Library | % Diff
-----------|------------|--------------|-------
+----------|-----------:|-------------:|------:
 strcmp_single_char_match | | |
 strcmp_tiny_string_match | 3,798.21683 | |
 strcmp_small_string_match | | |
@@ -114,7 +114,7 @@ strcasecmp_large_string_match | 1.55844 | |
 ### Peak-memory consumption benchmarks
 
 Benchmark | Native PHP | This Library | % Diff
-----------|------------|--------------|-------
+----------|-----------:|-------------:|------:
 
 *Note*: All benchmarks run a minimum of 1,000 times on a small, unloaded EC2 instance
 using PHP 5.3.  Refer to `tests/*Event.php` for actual code.  Refer to the
