@@ -1,10 +1,10 @@
-# Stencil
-Stencil is a PHP library for applying patterns to subject strings using a
-consistent, fluent API.  Stencil unifies the API for `strcmp` and family,
-`fnmatch`, `preg_match`, and `version_compare`, while also providing
-convenience methods for common string matching operations.
+# Pattern
+Pattern is a string-matching PHP library sporting a consistent, fluent API.
+Pattern unifies the API for `strcmp` and family, `fnmatch`, `preg_match`, and
+`version_compare`, while also offering convenience methods for common string-
+matching operations.
 
-Stencil might be for you if:
+Pattern might be for you if:
 
 * You're tired of referring to the PHP user manual for the argument order of
 `strpos` and friends.
@@ -15,23 +15,23 @@ a string ends with another.
 
 | Branch | Unit Tests | Coverage |
 | ------ | ---------- | -------- |
-| [![Latest Stable Version](https://poser.pugx.org/bishopb/stencil/v/stable.png)](https://packagist.org/packages/bishopb/stencil) | [![Build Status](https://travis-ci.org/bishopb/stencil.png?branch=master)](https://travis-ci.org/bishopb/stencil) | [![Coverage Status](https://coveralls.io/repos/bishopb/stencil/badge.png?branch=master)](https://coveralls.io/r/bishopb/stencil?branch=master)|
+| [![Latest Stable Version](https://poser.pugx.org/bishopb/pattern/v/stable.png)](https://packagist.org/packages/bishopb/pattern) | [![Build Status](https://travis-ci.org/bishopb/pattern.png?branch=master)](https://travis-ci.org/bishopb/pattern) | [![Coverage Status](https://coveralls.io/repos/bishopb/pattern/badge.png?branch=master)](https://coveralls.io/r/bishopb/pattern?branch=master)|
 
 ## Quickstart
 
-Install with [Composer][1]: `composer require bishopb/stencil:~0.1`
+Install with [Composer][1]: `composer require bishopb/pattern:~0.1`
 
 Use:
 
 ```php
-use BishopB\Stencil;
+use BishopB\Pattern;
 
 // common matching API regardless of pattern language
 $subjects = array ( 'Capable', 'Enabler', 'Able', );
 $patterns = array (
-    new Literal('Able'),
-    new Wildcard('*able*'),
-    new Pcre('^\w*Able\w*$')->fold(),
+    new Pattern\Literal('Able'),
+    new Pattern\Wildcard('*able*'),
+    new Pattern\Pcre('^\w*Able\w*$')->fold(),
 );
 foreach ($subjects as $subject) {
     foreach ($patterns as $pattern) {
@@ -39,16 +39,16 @@ foreach ($subjects as $subject) {
     }
 }
 
-// literal string matching sugar
-$able = new Literal('Able')->fold();
+// literal matching sugar
+$able = new Pattern\Literal('Able')->fold();
 $able->foundIn('tablet');
 $able->begins('Abletic');
 $able->ends('Parable');
 $able->sorts->before('active');
 $able->sorts->after('aardvark');
 
-// version string matching sugar
-$stable = new Version('1.0.0');
+// version matching sugar
+$stable = new Pattern\Version('1.0.0');
 $stable->matches('1.0.0');
 $stable->before('1.0.1');
 $stable->after('0.9.9');
@@ -130,7 +130,7 @@ take strings.  However, you can also pass instances of `Subject`, which is
 a lightweight string class fit with methods common to string comparison:
 
 ```php
-use BishopB\Stencil;
+use BishopB\Pattern;
 
 $device  = new Literal('Tablet')->fold();
 $version = new Version('8.1');
@@ -221,5 +221,5 @@ conflicts with this goal.
 
 [1]: http://getcomposer.org/
 [2]: https://bugs.php.net/bug.php?id=64069
-[3]: https://travis-ci.org/bishopb/stencil
+[3]: https://travis-ci.org/bishopb/pattern
 [4]: http://grokbase.com/t/php/php-internals/0869z2aemb/algorithm-optimizations-string-search#20080611g4vev3qwk7sj0sdwmgjtg7pjyc

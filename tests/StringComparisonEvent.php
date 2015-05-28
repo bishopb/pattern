@@ -1,5 +1,5 @@
 <?php
-namespace BishopB\Stencil;
+namespace BishopB\Pattern;
 
 use Athletic\AthleticEvent;
 
