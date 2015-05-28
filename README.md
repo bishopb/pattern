@@ -95,17 +95,30 @@ the requested match.  Space is conserved as much as possible.
 
 ### Run-time benchmarks
 
+Meaurements for different tests in operations per second.
+
 Benchmark | Native PHP | This Library | % Diff
 ----------|------------|--------------|-------
-String comparison (Strcmp) | 
+strcmp_single_char_match | | |
+strcmp_tiny_string_match | 3,798.21683 | |
+strcmp_small_string_match | | |
+strcmp_medium_string_match | 32,991.49158 | |
+strcmp_large_string_match | 71.65056 | |
+strcmp_tiny_to_large_mismatch | 54,822.84512 | |
+strcasecmp_single_char_match | 90,357.87224 | |
+strcasecmp_tiny_string_match | 75,753.89895 | |
+strcasecmp_small_string_match | 30,056.59029 | |
+strcasecmp_medium_string_match | 436.80003 | |
+strcasecmp_large_string_match | 1.55844 | |
 
 ### Peak-memory consumption benchmarks
 
 Benchmark | Native PHP | This Library | % Diff
 ----------|------------|--------------|-------
 
-*All benchmarks run 1,000,000 times on a small, unloaded EC2 instance. Refer to
-`tests/` for actual code.*
+*Note*: All benchmarks run a minimum of 1,000 times on a small, unloaded EC2 instance
+using PHP 5.3.  Refer to `tests/*Event.php` for actual code.  Refer to the
+[Travis CI][3] builds for run times on different PHP versions.
 
 
 ## Advanced usage
@@ -150,7 +163,7 @@ $zebra->foundIn($words);
 
 You may be wondering: how many characters is "long"?  Or, how many iterations
 is "many"?  Well, I suppose it depends.  But, a long time ago, some PHP
-internals [benchmarking][3] suggested a length of 5000+ or more would make
+internals [benchmarking][4] suggested a length of 5000+ or more would make
 studying worth it.
 
 
@@ -163,6 +176,43 @@ I kept referring to the official docs on the argument order for the built-ins
 and because common use cases aren't handled concisely.  In summary, this
 library lets me write less code and be more clear in meaning.
 
+For example, I see a lot of code following this pattern:
+```php
+if (! strcmp($actual, $expected)) {
+    $this->doSomething();
+} else {
+    throw new \RuntimeException('Actual does not match expected');
+}
+```
+
+It's technically right.  But, to me, it looks wrong.  I find this much easier
+to read:
+
+```php
+if ($actual->matches($expected)) {
+    $this->doSomething();
+} else {
+    throw new \RuntimeException('Actual does not match expected');
+}
+```
+
+There is a related side benefit.  In weak-mode PHP, functions that receive
+an invalid parameter emit a warning and return `null`.  Since `null` evaluates
+falsey, the example above runs `doSomething` unexpectedly.  Consider:
+
+```php
+// ?password=[]
+if (! strcmp($_GET['password'], $user->password)) {
+    $this->login($user);
+} else {
+    throw new \RuntimeException('Invalid password');
+}
+```
+
+Why? Because `true === (! (null === strcmp(array (), '******')))`. In this
+library, an exception is raised if you try to match against an array.
+
+
 ### Why not add more stringy methods, like `length()`, to `Subject`?
 
 The package overall aims to support pattern matching in the lightest weight
@@ -171,4 +221,5 @@ conflicts with this goal.
 
 [1]: http://getcomposer.org/
 [2]: https://bugs.php.net/bug.php?id=64069
-[3]: http://grokbase.com/t/php/php-internals/0869z2aemb/algorithm-optimizations-string-search#20080611g4vev3qwk7sj0sdwmgjtg7pjyc
+[3]: https://travis-ci.org/bishopb/stencil
+[4]: http://grokbase.com/t/php/php-internals/0869z2aemb/algorithm-optimizations-string-search#20080611g4vev3qwk7sj0sdwmgjtg7pjyc
