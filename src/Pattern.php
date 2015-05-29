@@ -16,7 +16,7 @@ abstract class Pattern
      */
     public function __construct($pattern)
     {
-        if (is_string($string)) {
+        if (is_string($pattern)) {
         } else {
             throw new InvalidArgument(sprintf(
                 'Pattern given as type %s, expecting string',
