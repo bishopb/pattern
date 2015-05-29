@@ -36,7 +36,7 @@
 <text text-anchor="middle" x="126" y="-137.2" font-family="Courier,monospace" font-size="11.00">PatternLibraryException</text>
 </g>
 <!-- \\BishopB\\Pattern\\Exception\\InvalidArgument&#45;&gt;\\BishopB\\Pattern\\Exception\\PatternLibraryException -->
-<g id="edge2" class="edge"><title>\\BishopB\\Pattern\\Exception\\InvalidArgument&#45;&gt;\\BishopB\\Pattern\\Exception\\PatternLibraryException</title>
+<g id="edge3" class="edge"><title>\\BishopB\\Pattern\\Exception\\InvalidArgument&#45;&gt;\\BishopB\\Pattern\\Exception\\PatternLibraryException</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M307.719,-140C282.027,-140 251.142,-140 222.232,-140"/>
 <polygon fill="none" stroke="black" points="222.1,-136.5 212.1,-140 222.099,-143.5 222.1,-136.5"/>
 </g>
@@ -46,7 +46,7 @@
 <text text-anchor="middle" x="126" y="-14.3" font-family="Times,serif" font-size="14.00" fill="gray">\InvalidArgumentException</text>
 </g>
 <!-- \\BishopB\\Pattern\\Exception\\InvalidArgument&#45;&gt;\\InvalidArgumentException -->
-<g id="edge1" class="edge"><title>\\BishopB\\Pattern\\Exception\\InvalidArgument&#45;&gt;\\InvalidArgumentException</title>
+<g id="edge2" class="edge"><title>\\BishopB\\Pattern\\Exception\\InvalidArgument&#45;&gt;\\InvalidArgumentException</title>
 <path fill="none" stroke="black" d="M315.043,-121.951C312.569,-120.694 310.154,-119.377 307.84,-118 271.549,-96.4071 272.416,-77.1076 235.84,-56 222.812,-48.4815 208.053,-42.1023 193.701,-36.8416"/>
 <polygon fill="none" stroke="black" points="194.452,-33.3955 183.857,-33.378 192.129,-39.9987 194.452,-33.3955"/>
 </g>
@@ -62,7 +62,7 @@
 <text text-anchor="start" x="102" y="-77.2" font-family="Courier,monospace" font-size="11.00">Pattern</text>
 </g>
 <!-- \\BishopB\\Pattern\\Literal&#45;&gt;\\BishopB\\Pattern\\Pattern -->
-<g id="edge3" class="edge"><title>\\BishopB\\Pattern\\Literal&#45;&gt;\\BishopB\\Pattern\\Pattern</title>
+<g id="edge1" class="edge"><title>\\BishopB\\Pattern\\Literal&#45;&gt;\\BishopB\\Pattern\\Pattern</title>
 <path fill="none" stroke="black" d="M334.616,-86C294.917,-86 225.836,-86 178.337,-86"/>
 <polygon fill="none" stroke="black" points="178.249,-82.5001 168.249,-86 178.249,-89.5001 178.249,-82.5001"/>
 </g>

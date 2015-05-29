@@ -1,53 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="API Documentation" version="2.8.2">
   <partials/>
-  <file path="exceptions/PatternLibraryException.php" generated-path="exceptions.PatternLibraryException.html" hash="8fab6f02602354aebf4e73e2198fe5fc" package="Default">
-    <docblock line="0">
-      <description></description>
-      <long-description></long-description>
-      <tag name="package" line="0" description="Default"/>
-    </docblock>
-    <interface namespace="BishopB\Pattern\Exception" line="8" package="Default">
-      <name>PatternLibraryException</name>
-      <full_name>\BishopB\Pattern\Exception\PatternLibraryException</full_name>
-      <docblock line="8">
-        <description>A simple interface for marking that all our custom exceptions
-belong to this package, independent of their parent.</description>
-        <long-description></long-description>
-        <tag name="package" line="8" description="Default"/>
-      </docblock>
-    </interface>
-    <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-    </parse_markers>
-    <source>eJxFjs0KwkAMhO95ipyL2AdQEAVvHnyAXtKatqHbzZLdgiK+uyn4cwmEmflm9oc0Jog0c07UMZ4kj5pOzZVKYYvN+d5xKqJxB1BXFWCFR8wyp8Ao0S39murVcCabJA5YRipIIaAuht2Si87IX0peAS0HXY3qXsnovRMNvHHejRP7iQW1d5HFXDX/t56r4V/4mXeR1sgev5HwhBe8AYaHSiE=</source>
-  </file>
-  <file path="exceptions/InvalidArgument.php" generated-path="exceptions.InvalidArgument.html" hash="ce80c1ff61959f15b9b29f57d0db3410" package="Default">
-    <docblock line="0">
-      <description></description>
-      <long-description></long-description>
-      <tag name="package" line="0" description="Default"/>
-    </docblock>
-    <namespace-alias name="InvalidArgumentException">\InvalidArgumentException</namespace-alias>
-    <namespace-alias name="PatternLibraryException">\BishopB\Pattern\Exception\PatternLibraryException</namespace-alias>
-    <class final="false" abstract="false" namespace="BishopB\Pattern\Exception" line="12" package="Default">
-      <extends>\InvalidArgumentException</extends>
-      <implements>\BishopB\Pattern\Exception\PatternLibraryException</implements>
-      <name>InvalidArgument</name>
-      <full_name>\BishopB\Pattern\Exception\InvalidArgument</full_name>
-      <docblock line="12">
-        <description>Used when a method is given an actual parameter violating the formal
-parameter definition.  For example, when a pattern is constructed with
-an array.</description>
-        <long-description></long-description>
-        <tag name="package" line="12" description="Default"/>
-      </docblock>
-    </class>
-    <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-    </parse_markers>
-    <source>eJx1kMFKBDEMhu99ipwH2X0ABXFBQfDgxdtcYpudBjppSTPjLuK72yqri7LQS/4k3/+nN7clFic4Uy3oCXZcYy678RnNSGW8P3gqxlmunVsqwfgoKyYOdzotM4md9b/aF/dPyhO/KurxnLsdBgcDvFQK8BZJAGEmizkAV5h47Up73hZMUFBb2EaClXNCY5nAIsE+64ypc34nAu1ZuLtsAB6yAh1wLomuTjblO1P38Vmq6eKth2CLndRdVfG4acXW+YS1wp/7G9JIwj/95z7g7tilChe+wL27D/cJV5OOMg==</source>
-  </file>
   <file path="Literal.php" generated-path="Literal.html" hash="054373d4d7af973c80e6cc19f6a4302e" package="Default">
     <docblock line="0">
       <description></description>
@@ -65,16 +18,16 @@ an array.</description>
         <tag name="package" line="9" description="Default"/>
         <tag name="inherited_from" description="\BishopB\Pattern\Pattern" refers="\BishopB\Pattern\Pattern" link="/classes/BishopB.Pattern.Pattern.html"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="BishopB\Pattern" line="17" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BishopB\Pattern" line="22" package="Default">
         <name>__construct</name>
         <full_name>\BishopB\Pattern\Pattern::__construct()</full_name>
-        <docblock line="17">
+        <docblock line="22">
           <description>Create a pattern.</description>
           <long-description></long-description>
-          <tag name="param" line="17" description="&lt;p&gt;The pattern to use.&lt;/p&gt;" type="string" variable="$pattern">
+          <tag name="param" line="22" description="&lt;p&gt;The pattern to use.&lt;/p&gt;" type="string" variable="$pattern">
             <type>string</type>
           </tag>
-          <tag name="throws" line="17" description="if not given a string" type="\BishopB\Pattern\Exception\InvalidArgument">
+          <tag name="throws" line="22" description="if not given a string" type="\BishopB\Pattern\Exception\InvalidArgument">
             <type>\BishopB\Pattern\Exception\InvalidArgument</type>
           </tag>
         </docblock>
@@ -91,33 +44,35 @@ an array.</description>
     </parse_markers>
     <source>eJxdjbEKAkEMRPt8xdSLeh+gIFxtIdbXhDWwB3vZcIkgiP/ugleI7bw3M6ezFSPlRdw4C8bZS7NxunKErHokerhg+ot/8JASIeEmtoqLhoNR5w65wr7WDk0FUThQ2KENiwTvc+GVcxf80BcGypXdcdm68gzRu2N7ohe96QNZhjuF</source>
   </file>
-  <file path="Pattern.php" generated-path="Pattern.html" hash="a3ea874f7b16e6e1a0c6be103a5c5646" package="Default">
+  <file path="Pattern.php" generated-path="Pattern.html" hash="7b33bad254a48d9fc15f9b8296c34b2f" package="Default">
     <docblock line="0">
-      <description></description>
+      <description>Concise and expressive string-matching library for PHP.</description>
       <long-description></long-description>
       <tag name="package" line="0" description="Default"/>
+      <tag name="author" line="0" description="Bishop Bettini" link="mailto:bishop@php.net"/>
     </docblock>
     <namespace-alias name="InvalidArgument">\BishopB\Pattern\Exception\InvalidArgument</namespace-alias>
-    <class final="false" abstract="true" namespace="BishopB\Pattern" line="10" package="Default">
+    <class final="false" abstract="true" namespace="BishopB\Pattern" line="15" package="Default">
       <extends/>
       <name>Pattern</name>
       <full_name>\BishopB\Pattern\Pattern</full_name>
-      <docblock line="10">
+      <docblock line="15">
         <description>Represents a generic pattern and acts as a base class for all patterns in
 this library.</description>
         <long-description></long-description>
-        <tag name="package" line="10" description="Default"/>
+        <tag name="abstract" line="15" description=""/>
+        <tag name="package" line="15" description="Default"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="BishopB\Pattern" line="17" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BishopB\Pattern" line="22" package="Default">
         <name>__construct</name>
         <full_name>\BishopB\Pattern\Pattern::__construct()</full_name>
-        <docblock line="17">
+        <docblock line="22">
           <description>Create a pattern.</description>
           <long-description></long-description>
-          <tag name="param" line="17" description="&lt;p&gt;The pattern to use.&lt;/p&gt;" type="string" variable="$pattern">
+          <tag name="param" line="22" description="&lt;p&gt;The pattern to use.&lt;/p&gt;" type="string" variable="$pattern">
             <type>string</type>
           </tag>
-          <tag name="throws" line="17" description="if not given a string" type="\BishopB\Pattern\Exception\InvalidArgument">
+          <tag name="throws" line="22" description="if not given a string" type="\BishopB\Pattern\Exception\InvalidArgument">
             <type>\BishopB\Pattern\Exception\InvalidArgument</type>
           </tag>
         </docblock>
@@ -128,10 +83,50 @@ this library.</description>
         </argument>
       </method>
     </class>
-    <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-    </parse_markers>
-    <source>eJyVUMtOwzAQvPsr9lDUJKraDygSUMSBG0IcI1Ubd5NYSh3L6/Qh1H9nnQeFcmIOtrQ7Ozuz9w+udsrintihJtgYrlu3yd8wBPJ2rVTHBPlNOX85aXLBtDZ/tQdszO7JV92ebJCBVZYpyOCdnCeWEgNCRZa80eCGeUC7A9SxFbsFyg7dIDOUrQdsmonIYGwUC7VhaEzh0Z+XUlgpLDh4kRjnRmPqU4GgtxCRwbMnDCRLRsXl1Hh06HEPomJsBbPJ2UdN3y5DC5L+OhFq3x75H9cAU4JtA1TmQBJ6XDbqrfrfdUUjhyk7q6MCbLe6tcLrdEgmU2nPHKJFiGpieDuoJbPhT9MfjAtQIze9FiJ6+2DpCDc2E3aiEMrkFz1iPkacEjCEsyO44wXQyZFYltsN++eLP9MVhUi/yTEhTddXv2p4L+oLnGzKag==</source>
+    <source>eJyVUstOwzAQvPsr9gBqWpX2A1pBKUKCW4U4Vqocs0ksJY5lb/oQ6r+zTmwK5cQektienZ2ZePlgKyvmk4mACTy1RmmPIM0H4NE69F7vETw5bcq7RpKq+ANqnTvpTlC0DjYvm1loXcmOKl6vta9aC2sk0kbDMu/XKx4yM0j3DJ0LIxv0ViqM6PV2I4nQmYUQHY/fXm1vn48KLenWbF/NXtb649GVXYOGuCFKf8Mgl7c8SCjRoNMK7NDf+5EqHIXTXPIMVUvveweyrhPQgzaBjCrtk8voLucQmKLXnxaRJKoUnwK4ej2hOE6HkjjNRD9LBysrnWxirnCTZL5X+C2ZWuAoLh1Uufbg/xEN6AJMS1DyH+QE4rDIN+/ftstrTqnojAoMsNup1jCuU5QlUeMeOVgLxayZ9ruB7YIa/4CcAWtO+LIRqtcPBg9wpTPzlqmoyH7BQ42ix2TBA50swq2fhsuJrJnDG4SMpn+6S76BDL8ykmo8Xlz0iuF5Fl+fj/Oa</source>
+  </file>
+  <file path="exceptions/InvalidArgument.php" generated-path="exceptions.InvalidArgument.html" hash="313acf9680c4af508e20abd85ca1ce2e" package="Default">
+    <docblock line="0">
+      <description>Concise and expressive string-matching library for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="author" line="0" description="Bishop Bettini" link="mailto:bishop@php.net"/>
+    </docblock>
+    <namespace-alias name="InvalidArgumentException">\InvalidArgumentException</namespace-alias>
+    <namespace-alias name="PatternLibraryException">\BishopB\Pattern\Exception\PatternLibraryException</namespace-alias>
+    <class final="false" abstract="false" namespace="BishopB\Pattern\Exception" line="16" package="Default">
+      <extends>\InvalidArgumentException</extends>
+      <implements>\BishopB\Pattern\Exception\PatternLibraryException</implements>
+      <name>InvalidArgument</name>
+      <full_name>\BishopB\Pattern\Exception\InvalidArgument</full_name>
+      <docblock line="16">
+        <description>Used when a method is given an actual parameter violating the formal
+parameter definition.  For example, when a pattern is constructed with
+an array.</description>
+        <long-description></long-description>
+        <tag name="package" line="16" description="Default"/>
+      </docblock>
+    </class>
+    <source>eJx1UEtOAzEM3ecUXlcwPQAVlKIikFh0w64bN+M2ljKeKPGUVoi74/QDFahSFvGz/T6ePKSQ3Hg0cjCCp148FwKUFmiXMpXCW4KimWVz26H6YB+IvMqY97DuMyxeFk1dneKgweoZl9AnmJEqC8NkdainJtII6b2Njp1gRyWhp9P0bLlAVcqynO88JeVe7pwbzMjyVbYYuX3Mm6Ej0Yv+oX11/4y8Ha1e8p6yvhdq4SOQAEJH5r0FLrCxvIbY8zpghITZzBoTbLmPqDW+BqrRO4yV53eipbVFrioNwLPdgnbYpUg3Z5l09FR1fC921cFrNcEaKlNVzRn3zeFIPmIp8Ce/USpJ+w//yQdcFStU4MoJ3Kf7ct+0QrLz</source>
+  </file>
+  <file path="exceptions/PatternLibraryException.php" generated-path="exceptions.PatternLibraryException.html" hash="daed28583dac3ac66509a79f480218cb" package="Default">
+    <docblock line="0">
+      <description>Concise and expressive string-matching library for PHP.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="author" line="0" description="Bishop Bettini" link="mailto:bishop@php.net"/>
+    </docblock>
+    <interface namespace="BishopB\Pattern\Exception" line="12" package="Default">
+      <name>PatternLibraryException</name>
+      <full_name>\BishopB\Pattern\Exception\PatternLibraryException</full_name>
+      <docblock line="12">
+        <description>A simple interface for marking that all our custom exceptions
+belong to this package, independent of their parent.</description>
+        <long-description></long-description>
+        <tag name="package" line="12" description="Default"/>
+      </docblock>
+    </interface>
+    <source>eJxFj01OAzEMhfc5hdcjmB6ACsqgSixYzAG68aSexmr+lHiqVoi745QBNlGe/Pze5+1Ldtlsus5AB28pWq4EGI9A11yoVr4QVCkcT48BxTr9gOepYLnBnAqM72PfVne4iFM9cHUpw0AiHBm2013vtKSPJM9q3ZiIgWpGS6t7OIwoQiUe9ldLWTjFJ/PL9AqVQ/YEHNUyt63WG7CcG4s4FEDvIS0F7FIlBUVfU2oLmMinZkzq5Qrae8YTPWjekTLpEwXSrEPiotOiur9j/heueB8/d/9Bmk/zZb4BwHpu4g==</source>
   </file>
   <package name="Default" full_name="Default"/>
   <package name="global" full_name="global"/>
