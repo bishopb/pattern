@@ -1,46 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="API Documentation" version="2.8.2">
   <partials/>
-  <file path="Matchable.php" generated-path="Matchable.html" hash="c6d97da3184b78217bc4f798ed82fc96" package="Default">
+  <file path="exceptions/PatternLibraryException.php" generated-path="exceptions.PatternLibraryException.html" hash="8fab6f02602354aebf4e73e2198fe5fc" package="Default">
     <docblock line="0">
       <description></description>
       <long-description></long-description>
       <tag name="package" line="0" description="Default"/>
     </docblock>
-    <interface namespace="BishopB\Upm\Contract" line="7" package="Default">
-      <name>Matchable</name>
-      <full_name>\BishopB\Upm\Contract\Matchable</full_name>
-      <docblock line="7">
-        <description>Declares that the object can match a simple string.</description>
+    <interface namespace="BishopB\Pattern\Exception" line="8" package="Default">
+      <name>PatternLibraryException</name>
+      <full_name>\BishopB\Pattern\Exception\PatternLibraryException</full_name>
+      <docblock line="8">
+        <description>A simple interface for marking that all our custom exceptions
+belong to this package, independent of their parent.</description>
         <long-description></long-description>
-        <tag name="package" line="7" description="Default"/>
+        <tag name="package" line="8" description="Default"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="BishopB\Upm\Contract" line="9" package="Default">
-        <name>matches</name>
-        <full_name>\BishopB\Upm\Contract\Matchable::matches()</full_name>
-        <docblock line="9">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$string</name>
-          <default></default>
-          <type/>
-        </argument>
-      </method>
     </interface>
     <parse_markers>
       <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-      <error line="9" code="PPC:ERR-50015">Argument $string is missing from the Docblock of matches</error>
-      <error line="9" code="PPC:ERR-50008">No summary for method matches()</error>
     </parse_markers>
-    <source>eJwtjbEOwjAMRHd/hQcGyEB2ioRUWBnZujiWS4LSJErcCfHvpIIbTjfcvTtfii+QaJFWiAXH0Hwu4/Qoy3TNSSuxDgDWGECDN+FIVRqqJ+0mmN1LWJEp4ULKHglbWEoUbFpDeh77zEJIKnXe+PetRC4KvAG7yupiYJzXxBryHyJtb80f0Oe7XzqgNSd0OUfpb8YO8IEvB2M+sA==</source>
+    <source>eJxFjs0KwkAMhO95ipyL2AdQEAVvHnyAXtKatqHbzZLdgiK+uyn4cwmEmflm9oc0Jog0c07UMZ4kj5pOzZVKYYvN+d5xKqJxB1BXFWCFR8wyp8Ao0S39murVcCabJA5YRipIIaAuht2Si87IX0peAS0HXY3qXsnovRMNvHHejRP7iQW1d5HFXDX/t56r4V/4mXeR1sgev5HwhBe8AYaHSiE=</source>
+  </file>
+  <file path="exceptions/InvalidArgument.php" generated-path="exceptions.InvalidArgument.html" hash="ce80c1ff61959f15b9b29f57d0db3410" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="InvalidArgumentException">\InvalidArgumentException</namespace-alias>
+    <namespace-alias name="PatternLibraryException">\BishopB\Pattern\Exception\PatternLibraryException</namespace-alias>
+    <class final="false" abstract="false" namespace="BishopB\Pattern\Exception" line="12" package="Default">
+      <extends>\InvalidArgumentException</extends>
+      <implements>\BishopB\Pattern\Exception\PatternLibraryException</implements>
+      <name>InvalidArgument</name>
+      <full_name>\BishopB\Pattern\Exception\InvalidArgument</full_name>
+      <docblock line="12">
+        <description>Used when a method is given an actual parameter violating the formal
+parameter definition.  For example, when a pattern is constructed with
+an array.</description>
+        <long-description></long-description>
+        <tag name="package" line="12" description="Default"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJx1kMFKBDEMhu99ipwH2X0ABXFBQfDgxdtcYpudBjppSTPjLuK72yqri7LQS/4k3/+nN7clFic4Uy3oCXZcYy678RnNSGW8P3gqxlmunVsqwfgoKyYOdzotM4md9b/aF/dPyhO/KurxnLsdBgcDvFQK8BZJAGEmizkAV5h47Up73hZMUFBb2EaClXNCY5nAIsE+64ypc34nAu1ZuLtsAB6yAh1wLomuTjblO1P38Vmq6eKth2CLndRdVfG4acXW+YS1wp/7G9JIwj/95z7g7tilChe+wL27D/cJV5OOMg==</source>
+  </file>
+  <file path="Literal.php" generated-path="Literal.html" hash="054373d4d7af973c80e6cc19f6a4302e" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Pattern">\BishopB\Pattern\Pattern</namespace-alias>
+    <class final="false" abstract="false" namespace="BishopB\Pattern" line="9" package="Default">
+      <extends>\BishopB\Pattern\Pattern</extends>
+      <name>Literal</name>
+      <full_name>\BishopB\Pattern\Literal</full_name>
+      <docblock line="9">
+        <description>Represents a literal pattern, one that has no meta-characters.</description>
+        <long-description></long-description>
+        <tag name="package" line="9" description="Default"/>
+        <tag name="inherited_from" description="\BishopB\Pattern\Pattern" refers="\BishopB\Pattern\Pattern" link="/classes/BishopB.Pattern.Pattern.html"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BishopB\Pattern" line="17" package="Default">
+        <name>__construct</name>
+        <full_name>\BishopB\Pattern\Pattern::__construct()</full_name>
+        <docblock line="17">
+          <description>Create a pattern.</description>
+          <long-description></long-description>
+          <tag name="param" line="17" description="&lt;p&gt;The pattern to use.&lt;/p&gt;" type="string" variable="$pattern">
+            <type>string</type>
+          </tag>
+          <tag name="throws" line="17" description="if not given a string" type="\BishopB\Pattern\Exception\InvalidArgument">
+            <type>\BishopB\Pattern\Exception\InvalidArgument</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$pattern</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\BishopB\Pattern\Pattern</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJxdjbEKAkEMRPt8xdSLeh+gIFxtIdbXhDWwB3vZcIkgiP/ugleI7bw3M6ezFSPlRdw4C8bZS7NxunKErHokerhg+ot/8JASIeEmtoqLhoNR5w65wr7WDk0FUThQ2KENiwTvc+GVcxf80BcGypXdcdm68gzRu2N7ohe96QNZhjuF</source>
+  </file>
+  <file path="Pattern.php" generated-path="Pattern.html" hash="a3ea874f7b16e6e1a0c6be103a5c5646" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="InvalidArgument">\BishopB\Pattern\Exception\InvalidArgument</namespace-alias>
+    <class final="false" abstract="true" namespace="BishopB\Pattern" line="10" package="Default">
+      <extends/>
+      <name>Pattern</name>
+      <full_name>\BishopB\Pattern\Pattern</full_name>
+      <docblock line="10">
+        <description>Represents a generic pattern and acts as a base class for all patterns in
+this library.</description>
+        <long-description></long-description>
+        <tag name="package" line="10" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BishopB\Pattern" line="17" package="Default">
+        <name>__construct</name>
+        <full_name>\BishopB\Pattern\Pattern::__construct()</full_name>
+        <docblock line="17">
+          <description>Create a pattern.</description>
+          <long-description></long-description>
+          <tag name="param" line="17" description="&lt;p&gt;The pattern to use.&lt;/p&gt;" type="string" variable="$pattern">
+            <type>string</type>
+          </tag>
+          <tag name="throws" line="17" description="if not given a string" type="\BishopB\Pattern\Exception\InvalidArgument">
+            <type>\BishopB\Pattern\Exception\InvalidArgument</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$pattern</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyVUMtOwzAQvPsr9lDUJKraDygSUMSBG0IcI1Ubd5NYSh3L6/Qh1H9nnQeFcmIOtrQ7Ozuz9w+udsrintihJtgYrlu3yd8wBPJ2rVTHBPlNOX85aXLBtDZ/tQdszO7JV92ebJCBVZYpyOCdnCeWEgNCRZa80eCGeUC7A9SxFbsFyg7dIDOUrQdsmonIYGwUC7VhaEzh0Z+XUlgpLDh4kRjnRmPqU4GgtxCRwbMnDCRLRsXl1Hh06HEPomJsBbPJ2UdN3y5DC5L+OhFq3x75H9cAU4JtA1TmQBJ6XDbqrfrfdUUjhyk7q6MCbLe6tcLrdEgmU2nPHKJFiGpieDuoJbPhT9MfjAtQIze9FiJ6+2DpCDc2E3aiEMrkFz1iPkacEjCEsyO44wXQyZFYltsN++eLP9MVhUi/yTEhTddXv2p4L+oLnGzKag==</source>
   </file>
   <package name="Default" full_name="Default"/>
   <package name="global" full_name="global"/>
   <namespace name="BishopB" full_name="BishopB">
-    <namespace name="Upm" full_name="BishopB\Upm">
-      <namespace name="Contract" full_name="BishopB\Upm\Contract"/>
+    <namespace name="Pattern" full_name="BishopB\Pattern">
+      <namespace name="Exception" full_name="BishopB\Pattern\Exception"/>
     </namespace>
   </namespace>
   <deprecated count="0"/>

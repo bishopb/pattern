@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">3</span></a></li>
+                <span class="label label-info">4</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -62,7 +62,16 @@
 </li>
 <li class="nav-header">
 <i title="Interfaces" class="icon-custom icon-interface"></i> Interfaces</li>
-<li><a href="#Matchable" title="Declares that the object can match a simple string.">Matchable</a></li>
+<li><a href="#PatternLibraryException" title="A simple interface for marking that all our custom exceptions
+belong to this package, independent of their parent.">PatternLibraryException</a></li>
+<li class="nav-header">
+<i title="Classes" class="icon-custom icon-class"></i> Classes</li>
+<li><a href="#InvalidArgument" title="Used when a method is given an actual parameter violating the formal
+parameter definition.  For example, when a pattern is constructed with
+an array.">InvalidArgument</a></li>
+<li><a href="#Literal" title="Represents a literal pattern, one that has no meta-characters.">Literal</a></li>
+<li><a href="#Pattern" title="Represents a generic pattern and acts as a base class for all patterns in
+this library.">Pattern</a></li>
 </ul>
 </div>
 <div class="span8 package-contents">
@@ -72,12 +81,37 @@
 <div class="package-indent">
 <h3>
 <i title="Classes" class="icon-custom icon-class"></i> Classes, interfaces, and traits</h3>
-<div xmlns:php="http://php.net/xsl" id="Matchable" class="element ajax clickable interface">
-<h1>Matchable<a href="../classes/BishopB.Upm.Contract.Matchable.html">¶</a>
+<div xmlns:php="http://php.net/xsl" id="PatternLibraryException" class="element ajax clickable interface">
+<h1>PatternLibraryException<a href="../classes/BishopB.Pattern.Exception.PatternLibraryException.html">¶</a>
 </h1>
-<p class="short_description">Declares that the object can match a simple string.</p>
+<p class="short_description">A simple interface for marking that all our custom exceptions
+belong to this package, independent of their parent.</p>
 <div class="details collapse"></div>
-<a href="../classes/BishopB.Upm.Contract.Matchable.html" class="more">« More »</a>
+<a href="../classes/BishopB.Pattern.Exception.PatternLibraryException.html" class="more">« More »</a>
+</div>
+<div xmlns:php="http://php.net/xsl" id="InvalidArgument" class="element ajax clickable class">
+<h1>InvalidArgument<a href="../classes/BishopB.Pattern.Exception.InvalidArgument.html">¶</a>
+</h1>
+<p class="short_description">Used when a method is given an actual parameter violating the formal
+parameter definition.  For example, when a pattern is constructed with
+an array.</p>
+<div class="details collapse"></div>
+<a href="../classes/BishopB.Pattern.Exception.InvalidArgument.html" class="more">« More »</a>
+</div>
+<div xmlns:php="http://php.net/xsl" id="Literal" class="element ajax clickable class">
+<h1>Literal<a href="../classes/BishopB.Pattern.Literal.html">¶</a>
+</h1>
+<p class="short_description">Represents a literal pattern, one that has no meta-characters.</p>
+<div class="details collapse"></div>
+<a href="../classes/BishopB.Pattern.Literal.html" class="more">« More »</a>
+</div>
+<div xmlns:php="http://php.net/xsl" id="Pattern" class="element ajax clickable class">
+<h1>Pattern<a href="../classes/BishopB.Pattern.Pattern.html">¶</a>
+</h1>
+<p class="short_description">Represents a generic pattern and acts as a base class for all patterns in
+this library.</p>
+<div class="details collapse"></div>
+<a href="../classes/BishopB.Pattern.Pattern.html" class="more">« More »</a>
 </div>
 </div>
 </div>
@@ -85,7 +119,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.2</a> and<br>
-            generated on 2015-05-28T15:39:48-04:00.<br></footer></div>
+            generated on 2015-05-29T11:49:14-04:00.<br></footer></div>
 </div>
 </body>
 </html>
