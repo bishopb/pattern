@@ -2,7 +2,7 @@
 <phpdoc>
   <title><![CDATA[bishopb/pattern]]></title>
   <parser>
-    <default-package-name><![CDATA[BishopB\Pattern]]></default-package-name>
+    <default-package-name>Pattern</default-package-name>
     <target>docs</target>
     <encoding>utf8</encoding>
     <markers>
