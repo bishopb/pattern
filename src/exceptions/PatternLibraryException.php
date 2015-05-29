@@ -1,4 +1,8 @@
 <?php
+/**
+ * Concise and expressive string-matching library for PHP.
+ * @author Bishop Bettini <bishop@php.net>
+ */
 namespace BishopB\Pattern\Exception;
 
 /**
