@@ -46,13 +46,13 @@
 						</div>
 						<div class="6u$ 12u$(medium) important(medium)">
 <pre><code>&lt;?php
-// simple stuff should be clear
-$password = new Literal($_GET['password']);
-if ($password->matches($this->password)) {
-    $this->login();
+// simple tasks should be concise
+$input = new Literal($_GET['password']);
+if ($input->matches($user->password)) {
+    $user->login();
 }
 
-// hard stuff should be easy
+// hard tasks should be clear
 $shell = new Pcre('{a,ba,k,z}sh');
 $file  = new SubjectFile('/etc/group');
 $shell->foundIn($file->column(':', 7));
