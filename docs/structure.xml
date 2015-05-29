@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project title="API Documentation" version="2.8.2">
+<project title="bishopb/pattern" version="2.8.2">
   <partials/>
   <file path="exceptions/PatternLibraryException.php" generated-path="exceptions.PatternLibraryException.html" hash="daed28583dac3ac66509a79f480218cb" package="Default">
     <docblock line="0">

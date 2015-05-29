@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpdoc>
+  <title><![CDATA[bishopb/pattern]]></title>
   <parser>
+    <default-package-name><![CDATA[BishopB\Pattern]]></default-package-name>
     <target>docs</target>
     <encoding>utf8</encoding>
     <markers>
