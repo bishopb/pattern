@@ -1,4 +1,8 @@
 <?php
+/**
+ * @package bishopb/pattern
+ * @author Bishop Bettini <bishop@php.net>
+ */
 namespace BishopB\Pattern;
 
 use \BishopB\Pattern\Exception\InvalidArgument;
@@ -6,6 +10,7 @@ use \BishopB\Pattern\Exception\InvalidArgument;
 /**
  * Represents a generic pattern and acts as a base class for all patterns in
  * this library.
+ * @abstract
  */
 abstract class Pattern
 {
