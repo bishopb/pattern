@@ -1,12 +1,15 @@
 # Pattern
+
+[![Latest Stable Version](https://poser.pugx.org/bishopb/pattern/v/stable.png)](https://packagist.org/packages/bishopb/pattern) [![Build Status](https://travis-ci.org/bishopb/pattern.png?branch=master)](https://travis-ci.org/bishopb/pattern) [![Coverage Status](https://coveralls.io/repos/bishopb/pattern/badge.png?branch=master)](https://coveralls.io/r/bishopb/pattern?branch=master)
+
 Pattern is a string-matching PHP library sporting a consistent, fluent API.
 Pattern unifies the API for `strcmp` and family, `fnmatch`, `preg_match`, and
-`version_compare`, while also offering convenience methods for common string-
-matching operations.
+`version_compare`, while also offering convenience methods for common
+string-matching operations.
 
 Pattern might be for you if:
 
-* You want your string-matching code to readable and describe your intent.
+* You want readable string-matching code that clearly describes your intent.
 * You're frustrated that there's no simple, built-in implementation to find if
 a string *ends* with another.
 * You want to avoid silly off-by-one errors when doing simple string checks.
@@ -14,10 +17,6 @@ a string *ends* with another.
 regardless of whether that's `strstr` or `strpos`.
 * You're tired of referring to the PHP user manual for the argument order of
 `strpos` and friends.
-
-| Branch | Unit Tests | Coverage |
-| ------ | ---------- | -------- |
-| [![Latest Stable Version](https://poser.pugx.org/bishopb/pattern/v/stable.png)](https://packagist.org/packages/bishopb/pattern) | [![Build Status](https://travis-ci.org/bishopb/pattern.png?branch=master)](https://travis-ci.org/bishopb/pattern) | [![Coverage Status](https://coveralls.io/repos/bishopb/pattern/badge.png?branch=master)](https://coveralls.io/r/bishopb/pattern?branch=master)|
 
 ## Quickstart
 
