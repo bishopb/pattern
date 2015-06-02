@@ -1,5 +1,7 @@
 <phpunit
   bootstrap="vendor/autoload.php"
+  backupGlobals="false"
+  backupStaticAttributes="false"
   convertErrorsToExceptions="true"
   convertNoticesToExceptions="true"
   convertWarningsToExceptions="true"
@@ -23,7 +25,7 @@
         <string>./vendor/facebook/xhprof/xhprof_lib/utils/xhprof_runs.php</string>
        </element>
        <element key="xhprofWeb">
-        <string>http://localhost/tests/profiling/index.php</string>
+        <string>http://localhost/vendor/facebook/xhprof/xhprof_html/index.php</string>
        </element>
        <element key="appNamespace">
         <string>BishopB\Pattern</string>

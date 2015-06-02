@@ -72,7 +72,7 @@ abstract class Pattern
      *
      * @var string
      */
-    protected $pattern = null;
+    public $pattern = null;
 
     /**
      * Whether, or not, this pattern should be case folded.
