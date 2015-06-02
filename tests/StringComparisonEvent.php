@@ -2,27 +2,13 @@
 namespace BishopB\Pattern;
 
 use Athletic\AthleticEvent;
+use BishopB\Pattern\EventFixtures as F;
 
 /**
  * Clock string comparison.
  */
 class StringComparisonEvent extends AthleticEvent
 {
-    public function classSetUp()
-    {
-        $this->tinyString1   = str_repeat('a', 2 << 4);
-        $this->tinyString2   = str_repeat('b', 2 << 4);
-        $this->smallString1  = str_repeat('a', 2 << 8);
-        $this->smallString2  = str_repeat('b', 2 << 8);
-        $this->mediumString1 = str_repeat('a', 2 << 16);
-        $this->mediumString2 = str_repeat('b', 2 << 16);
-        $this->largeString1  = str_repeat('a', 2 << 24);
-        $this->largeString2  = str_repeat('b', 2 << 24);
-
-        $this->deathmatch1_1 = str_repeat('a', 2 << 12);
-        $this->deathmatch1_2 = str_repeat('a', 2 << 12);
-    }
-
     //------------------------------------------------------------------------
     // strcmp
     // -----------------------------------------------------------------------
@@ -32,7 +18,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function strcmp_single_char_match()
     {
-        strcmp('a', 'a');
+        F::with(strcmp(F::single(), F::single()));
     }
 
     /**
@@ -40,7 +26,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function strcmp_tiny_string_match()
     {
-        strcmp($this->tinyString1, $this->tinyString1);
+        F::with(strcmp(F::tiny('a'), F::tiny('a')));
     }
 
     /**
@@ -48,7 +34,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function strcmp_small_string_match()
     {
-        strcmp($this->smallString1, $this->smallString1);
+        F::with(strcmp(F::small('a'), F::small('a')));
     }
 
     /**
@@ -56,7 +42,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function strcmp_medium_string_match()
     {
-        strcmp($this->mediumString1, $this->mediumString1);
+        F::with(strcmp(F::medium('a'), F::medium('a')));
     }
 
     /**
@@ -64,7 +50,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function strcmp_large_string_match()
     {
-        strcmp($this->largeString1, $this->largeString1);
+        F::with(strcmp(F::large('a'), F::large('a')));
     }
 
     /**
@@ -72,7 +58,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function strcmp_tiny_to_large_mismatch()
     {
-        strcmp($this->tinyString1, $this->largeString1);
+        F::with(strcmp(F::tiny('a'), F::large('a')));
     }
 
     /**
@@ -80,67 +66,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function strcmp_large_to_tiny_mismatch()
     {
-        strcmp($this->largeString1, $this->tinyString1);
-    }
-
-    //------------------------------------------------------------------------
-    // (new Literal())->matches()
-    // -----------------------------------------------------------------------
-
-    /**
-     * @iterations 1000
-     */
-    public function literal_single_char_match()
-    {
-        $this->with(new Literal('a'))->matches('a');
-    }
-
-    /**
-     * @iterations 1000
-     */
-    public function literal_tiny_string_match()
-    {
-        $this->with(new Literal($this->tinyString1))->matches($this->tinyString1);
-    }
-
-    /**
-     * @iterations 1000
-     */
-    public function literal_small_string_match()
-    {
-        $this->with(new Literal($this->smallString1))->matches($this->smallString1);
-    }
-
-    /**
-     * @iterations 1000
-     */
-    public function literal_medium_string_match()
-    {
-        $this->with(new Literal($this->mediumString1))->matches($this->mediumString1);
-    }
-
-    /**
-     * @iterations 1000
-     */
-    public function literal_large_string_match()
-    {
-        $this->with(new Literal($this->largeString1))->matches($this->largeString1);
-    }
-
-    /**
-     * @iterations 1000
-     */
-    public function literal_tiny_to_large_mismatch()
-    {
-        $this->with(new Literal($this->tinyString1))->matches($this->largeString1);
-    }
-
-    /**
-     * @iterations 1000
-     */
-    public function literal_large_to_tiny_mismatch()
-    {
-        $this->with(new Literal($this->largeString1))->matches($this->tinyString1);
+        F::with(strcmp(F::large('a'), F::tiny('a')));
     }
 
     //------------------------------------------------------------------------
@@ -152,7 +78,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function strcasecmp_single_char_match()
     {
-        strcasecmp('a', 'a');
+        F::with(strcasecmp('a', 'a'));
     }
 
     /**
@@ -160,7 +86,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function strcasecmp_tiny_string_match()
     {
-        strcasecmp($this->tinyString1, $this->tinyString1);
+        F::with(strcasecmp(F::tiny('a'), F::tiny('a')));
     }
 
     /**
@@ -168,7 +94,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function strcasecmp_small_string_match()
     {
-        strcasecmp($this->smallString1, $this->smallString1);
+        F::with(strcasecmp(F::small('a'), F::small('a')));
     }
 
     /**
@@ -176,7 +102,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function strcasecmp_medium_string_match()
     {
-        strcasecmp($this->mediumString1, $this->mediumString1);
+        F::with(strcasecmp(F::medium('a'), F::medium('a')));
     }
 
     /**
@@ -184,7 +110,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function strcasecmp_large_string_match()
     {
-        strcasecmp($this->largeString1, $this->largeString1);
+        F::with(strcasecmp(F::large('a'), F::large('a')));
     }
 
     //------------------------------------------------------------------------
@@ -203,7 +129,7 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function deathmatch1_strcasecmp()
     {
-        strcasecmp($this->deathmatch1_1, $this->deathmatch1_2);
+        strcasecmp(F::medium('a'), F::medium('b'));
     }
 
     /**
@@ -212,8 +138,8 @@ class StringComparisonEvent extends AthleticEvent
     public function deathmatch1_preg_match()
     {
         preg_match(
-            '/^' . preg_quote($this->deathmatch1_1, '/') . '$/i',
-            $this->deathmatch1_2
+            '/^' . preg_quote(F::medium('a'), '/') . '$/i',
+            F::medium('b')
         );
     }
 
@@ -222,13 +148,8 @@ class StringComparisonEvent extends AthleticEvent
      */
     public function deathmatch1_strtolower_and_strcmp()
     {
-        $a = strtolower($this->deathmatch1_1);
-        $b = strtolower($this->deathmatch1_2);
+        $a = strtolower(F::medium('a'));
+        $b = strtolower(F::medium('b'));
         strcmp($a, $b);
-    }
-
-    public function with($thing)
-    {
-        return $thing;
     }
 }
