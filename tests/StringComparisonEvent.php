@@ -75,6 +75,74 @@ class StringComparisonEvent extends AthleticEvent
         strcmp($this->tinyString1, $this->largeString1);
     }
 
+    /**
+     * @iterations 1000
+     */
+    public function strcmp_large_to_tiny_mismatch()
+    {
+        strcmp($this->largeString1, $this->tinyString1);
+    }
+
+    //------------------------------------------------------------------------
+    // (new Literal())->matches()
+    // -----------------------------------------------------------------------
+
+    /**
+     * @iterations 1000
+     */
+    public function literal_single_char_match()
+    {
+        $this->with(new Literal('a'))->matches('a');
+    }
+
+    /**
+     * @iterations 1000
+     */
+    public function literal_tiny_string_match()
+    {
+        $this->with(new Literal($this->tinyString1))->matches($this->tinyString1);
+    }
+
+    /**
+     * @iterations 1000
+     */
+    public function literal_small_string_match()
+    {
+        $this->with(new Literal($this->smallString1))->matches($this->smallString1);
+    }
+
+    /**
+     * @iterations 1000
+     */
+    public function literal_medium_string_match()
+    {
+        $this->with(new Literal($this->mediumString1))->matches($this->mediumString1);
+    }
+
+    /**
+     * @iterations 1000
+     */
+    public function literal_large_string_match()
+    {
+        $this->with(new Literal($this->largeString1))->matches($this->largeString1);
+    }
+
+    /**
+     * @iterations 1000
+     */
+    public function literal_tiny_to_large_mismatch()
+    {
+        $this->with(new Literal($this->tinyString1))->matches($this->largeString1);
+    }
+
+    /**
+     * @iterations 1000
+     */
+    public function literal_large_to_tiny_mismatch()
+    {
+        $this->with(new Literal($this->largeString1))->matches($this->tinyString1);
+    }
+
     //------------------------------------------------------------------------
     // strcasecmp
     // -----------------------------------------------------------------------
@@ -157,5 +225,10 @@ class StringComparisonEvent extends AthleticEvent
         $a = strtolower($this->deathmatch1_1);
         $b = strtolower($this->deathmatch1_2);
         strcmp($a, $b);
+    }
+
+    public function with($thing)
+    {
+        return $thing;
     }
 }
