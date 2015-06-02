@@ -6,12 +6,14 @@ matching operations.
 
 Pattern might be for you if:
 
+* You want your string-matching code to readable and describe your intent.
+* You're frustrated that there's no simple, built-in implementation to find if
+a string *ends* with another.
+* You want to avoid silly off-by-one errors when doing simple string checks.
+* You want the best performing algorithm for a particular kind of string check,
+regardless of whether that's `strstr` or `strpos`.
 * You're tired of referring to the PHP user manual for the argument order of
 `strpos` and friends.
-* You're frustrated that there's no simple, built-in implementation to find if
-a string ends with another.
-* You're tired of off-by-one errors when doing simple string checks.
-* You want your code to read as you intend it to function.
 
 | Branch | Unit Tests | Coverage |
 | ------ | ---------- | -------- |
