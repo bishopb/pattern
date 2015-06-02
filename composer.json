@@ -3,7 +3,7 @@
     "description": "A string-matching PHP library sporting a consistent, fluent API.",
     "license": "MIT",
     "authors": [
-        { "name": "Bishop Bettini", "email": "bishop@php.net" }
+        { "name": "Bishop Bettini", "email": "bishop@php.net", "role": "lead" }
     ],
     "require": {
         "php": "~5.3"
@@ -19,7 +19,8 @@
         "phpunit/phpunit": "~4.0",
         "mockery/mockery": "0.9.4",
         "athletic/athletic": "~0.1",
-        "facebook/xhprof": "dev-master"
+        "phpunit/test-listener-xhprof": "1.0.*@dev",
+        "facebook/xhprof": "dev-master@dev"
     },
     "autoload-dev": {
         "psr-4": {

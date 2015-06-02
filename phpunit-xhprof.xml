@@ -1,0 +1,41 @@
+<phpunit
+  bootstrap="vendor/autoload.php"
+  convertErrorsToExceptions="true"
+  convertNoticesToExceptions="true"
+  convertWarningsToExceptions="true"
+>
+  <testsuites>
+    <testsuite name="BishopB\Pattern">
+      <directory suffix="Test.php">tests/</directory>
+    </testsuite>
+    <testsuite name="BishopB\Pattern\Exception">
+      <directory suffix="Test.php">tests/exceptions/</directory>
+    </testsuite>
+  </testsuites>
+  <listeners>
+    <listener class="PHPUnit\XHProfTestListener\XHProfTestListener" file="vendor/phpunit/test-listener-xhprof/src/XHProfTestListener.php">
+     <arguments>
+      <array>
+       <element key="xhprofLibFile">
+        <string>./vendor/facebook/xhprof/xhprof_lib/utils/xhprof_lib.php</string>
+       </element>
+       <element key="xhprofRunsFile">
+        <string>./vendor/facebook/xhprof/xhprof_lib/utils/xhprof_runs.php</string>
+       </element>
+       <element key="xhprofWeb">
+        <string>http://localhost/tests/profiling/index.php</string>
+       </element>
+       <element key="appNamespace">
+        <string>BishopB\Pattern</string>
+       </element>
+       <element key="xhprofFlags">
+        <string>XHPROF_FLAGS_CPU,XHPROF_FLAGS_MEMORY</string>
+       </element>
+       <element key="xhprofIgnore">
+        <string>call_user_func,call_user_func_array</string>
+       </element>
+      </array>
+     </arguments>
+    </listener>
+   </listeners>
+</phpunit>
