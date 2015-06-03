@@ -1,21 +1,22 @@
 <?php
-require_once 'vendor/autoload.php';
 
 // run the callback a lot, return average run time in ms
-function clock(\Closure $callback, $iterations = 100000) {
-    PHP_Timer::start();
+function clock(\Closure $callback, $iterations = 10000) {
+    $begin = microtime(true);
 
     for ($i = 0; $i < $iterations; $i++) {
         $callback();
     }
 
-    return (PHP_Timer::stop() / $iterations)*1000;
+    $end = microtime(true) - $begin;
+
+    return ($end / $iterations)*1000;
 }
 
 // nicely show me how long the name ran, and percent increase/decrease over last
 function report($name, $time) {
     static $last = null;
-    printf("%-10s: %.8fms", $name, $time);
+    printf("%-12s: %.8fms", $name, $time);
     if (null !== $last) {
         printf(", %.1f%%", (($time - $last)/$last)*100);
     }
@@ -34,5 +35,5 @@ class O {
 }
 
 // do it
-report('strcmp', clock(function () use ($a) { strcmp($a, $a); }));
-report('object', clock(function () use ($a) { $o = new O(); $o->strcmp($a); }));
+report('direct call', clock(function () use ($a) { strcmp($a, $a); }));
+report('object call', clock(function () use ($a) { $o = new O(); $o->strcmp($a); }));
