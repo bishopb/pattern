@@ -20,7 +20,8 @@
         "mockery/mockery": "0.9.4",
         "athletic/athletic": "~0.1",
         "phpunit/test-listener-xhprof": "1.0.*@dev",
-        "facebook/xhprof": "dev-master@dev"
+        "facebook/xhprof": "dev-master@dev",
+        "phpunit/php-timer": "~1.0"
     },
     "autoload-dev": {
         "psr-4": {

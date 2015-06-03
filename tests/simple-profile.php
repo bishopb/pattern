@@ -1,33 +1,38 @@
 <?php
-function clock($callback, $max = 100000) {
-    xhprof_enable();
+require_once 'vendor/autoload.php';
 
-    for ($i = 0; $i < $max; $i++) {
+// run the callback a lot, return average run time in ms
+function clock(\Closure $callback, $iterations = 100000) {
+    PHP_Timer::start();
+
+    for ($i = 0; $i < $iterations; $i++) {
         $callback();
     }
 
-    return xhprof_disable();
+    return (PHP_Timer::stop() / $iterations)*1000;
 }
 
-function report($name, $data) {
+// nicely show me how long the name ran, and percent increase/decrease over last
+function report($name, $time) {
     static $last = null;
-    $frame  = $data['main()==>{closure}'];
-    $metric = ($frame['wt']/$frame['ct'])/1000;
-    printf("%-10s: %.4fs (%d)", $name, $metric, $frame['ct']);
+    printf("%-10s: %.8fms", $name, $time);
     if (null !== $last) {
-        printf(", %.1f%%", (($metric - $last)/$last)*100);
+        printf(", %.1f%%", (($time - $last)/$last)*100);
     }
     echo PHP_EOL;
-    $last = $metric;
+    $last = $time;
 }
 
 
+// fixtures
 $a = str_repeat('a', 2<<8);
+
 class O {
     public function strcmp($a) {
         strcmp($a, $a);
     }
 }
 
+// do it
 report('strcmp', clock(function () use ($a) { strcmp($a, $a); }));
 report('object', clock(function () use ($a) { $o = new O(); $o->strcmp($a); }));
