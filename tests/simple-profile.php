@@ -37,3 +37,4 @@ class O {
 // do it
 report('direct call', clock(function () use ($a) { strcmp($a, $a); }));
 report('object call', clock(function () use ($a) { $o = new O(); $o->strcmp($a); }));
+report('voodoo call', clock(function () use ($a) { $o = unserialize('O:1:"O":0:{}'); $o->strcmp($a); }));
