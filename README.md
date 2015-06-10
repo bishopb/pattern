@@ -1,6 +1,7 @@
 # Pattern
 
 [![Latest Stable Version](https://poser.pugx.org/bishopb/pattern/v/stable.png)](https://packagist.org/packages/bishopb/pattern) [![Build Status](https://travis-ci.org/bishopb/pattern.png?branch=master)](https://travis-ci.org/bishopb/pattern) [![Coverage Status](https://coveralls.io/repos/bishopb/pattern/badge.png?branch=master)](https://coveralls.io/r/bishopb/pattern?branch=master)
+[![Monthly Downloads](https://poser.pugx.org/bishopb/pattern/d/monthly.png)](https://packagist.org/packages/bishopb/pattern)
 
 Pattern is a string-matching PHP library sporting a consistent, fluent API.
 Pattern unifies the API for `strcmp` and family, `fnmatch`, `preg_match`, and
