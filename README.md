@@ -21,7 +21,7 @@ regardless of whether that's `strstr` or `strpos`.
 
 ## Quickstart
 
-Install with [Composer][1]: `composer require bishopb/pattern:~0.1`
+Install with [Composer][1]: `composer require bishopb/pattern:dev-master`
 
 Use:
 
@@ -32,8 +32,7 @@ use BishopB\Pattern;
 $subjects = array ( 'Capable', 'Enabler', 'Able', );
 $patterns = array (
     new Pattern\Literal('Able'),
-    new Pattern\Wildcard('*able*'),
-    new Pattern\Pcre('^\w*Able\w*$')->fold(),
+    new Pattern\Wildcard('*able*')
 );
 foreach ($subjects as $subject) {
     foreach ($patterns as $pattern) {
